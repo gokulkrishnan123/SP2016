@@ -1,0 +1,239 @@
+<html> 
+<head> 
+  <title>Testing the Survey Application</title> 
+</head> 
+<body background="http://www.csubak.edu/Graphics/backgrnd.gif">
+
+ <font color=#1346AD size=+3>Survey Application Test Form</font> <br>
+ <form action="survey_info.php" method ="POST">
+   What Gender are You:<br>
+   <li><input type=radio name=myGender value=Male>Male<br> 
+   <li><input type=radio name=myGender value=Female>Female<br> 
+   What Gender do you want to live with:<br> 
+   <li><input type=radio name=otherGender value=Male>Male<br> 
+   <li><input type=radio name=otherGender value=Female>Female<br> 
+   <li><input type=radio name=otherGender value=Either>Either<br>
+
+   <p> 
+      What age range are you confortable living with:<br> 
+      <input type="number" name ="minAge"
+      min="18"
+      max="100"
+      step="1"
+      value="21"> to
+      <input type="number" name = "maxAge"
+      min="18"
+      max="100"
+      step="1"
+      value="21">
+   </p>
+   <h4> Personal Habits </h4>
+   <p>
+      How clean are you on a scale of 1 to 4? (1 being not clean, 2 being somewhat clean, average clean, very clean)
+      <input type="range" name = "cleanliness" min="1" max="4" value="2" step="1" oninput="cleanValue(this.value)" />  
+      <span id="cleanliness">2</span>
+      <script type="text/javascript">
+      function cleanValue(newValue)
+      {
+         document.getElementById("cleanliness").innerHTML=newValue;
+      }
+      </script>
+  
+      Roommate's Answer
+      <input type="range" name="cleanliness2" min="1" max="4" value="2" step="1" oninput="cleanValue2(this.value)" />
+      <span id="cleanliness2">2</span>
+      <script type="text/javascript">
+      function cleanValue2(newValue)
+      {
+         document.getElementById("cleanliness2").innerHTML=newValue;
+      }
+      </script>
+      Importance: <input type="number" name = "cleanliness3"
+                    min="1"
+                    max="10"
+                    step="1"
+                    value="5">
+   </p>
+   <p>
+      How comfortable are you with noise?
+      <input type="range" name = "noise" min="1" max="4" value="2" step="1" oninput="noiseValue(this.value)" />
+      <span id="noise">2</span>
+      <script type="text/javascript">
+      function noiseValue(newValue)
+      {
+        document.getElementById("noise").innerHTML=newValue;
+      }
+      </script>
+    
+      Roommate's Answer
+      <input type="range" name = "noise2" min="1" max="4" value="2" step="1" oninput="noiseValue2(this.value)" />
+      <span id="noise2">2</span>
+      <script type="text/javascript">
+      function noiseValue2(newValue)
+      {
+        document.getElementById("noise2").innerHTML=newValue;
+      }
+      </script>
+         Importance: <input type="number" name = "noise3"
+         min="1"
+         max="10"
+         step="1"
+         value="5">
+   </p>
+   <p>
+      How okay are you with having people over?
+      <input type="range" name ="people" min="1" max="4" value="2" step="1" oninput="peopleOverValue(this.value)" />
+      <span id="people">2</span>
+      <script type="text/javascript">
+      function peopleOverValue(newValue)
+      {
+       document.getElementById("people").innerHTML=newValue;
+      }
+      </script>
+      Roommate's Answer
+      <input type="range" name ="people2" min="1" max="2" value="2" step="1" oninput="peopleOverValue2(this.value)" />
+      <span id="people2">2</span>
+      <script type="text/javascript">
+      function peopleOverValue2(newValue)
+      {
+       document.getElementById("people2").innerHTML=newValue;
+      }
+      </script>
+      Importance: <input type="number" name = "people3"
+        min="1"
+        max="10"
+        step="1"
+        value="5">
+   </p>
+   <p>
+      How okay are you living with a smoker?
+      <input type="range" name = "smoker" min="1" max="4" value="2" step="1" oninput="smokingValue(this.value)" />
+      <span id="smoker">2</span>
+      <script type="text/javascript">
+      function smokingValue(newValue)
+      {
+       document.getElementById("smoker").innerHTML=newValue;
+      }
+      </script>
+      Roommate's Answer
+      <input type="range" name = "smoker2" min="1" max="4" value="2" step="1" oninput="smokingValue2(this.value)" />
+      <span id="smoker2">2</span>
+      <script type="text/javascript">
+      function smokingValue2(newValue)
+      {
+       document.getElementById("smoker2").innerHTML=newValue;
+      }
+      </script>
+      Importance: <input type="number" name = "smoker3"
+           min="1"
+           max="10"
+           step="1"
+           value="5">
+   </p>
+
+   <p>
+      What's your ideal room temperature (in degrees F)?
+      <input type="range" name= "temperature" min="1" max="4" value="2" step="1" oninput="tempValue(this.value)" />
+      <span id="temperature">2</span>
+      <script type="text/javascript">
+      function tempValue(newValue)
+      {
+        document.getElementById("temperature").innerHTML=newValue;
+      }
+      </script>
+      Roommate's Answer
+      <input type="range" name="temperature2" min="1" max="4" value="2" step="1" oninput="tempValue2(this.value)" />
+      <span id="temperature2">2</span>
+      <script type="text/javascript">
+      function tempValue2(newValue)
+      {
+        document.getElementById("temperature2").innerHTML=newValue;
+      }
+      </script>
+      Importance: <input type="number" name = "temperature3"
+          min="1"
+          max="10"
+          step="1"
+          value="5">
+   </p>
+
+   <p>
+      How okay would you be living with pets?
+      <input type="range" name="pets" min="1" max="4" value="2" step="1" oninput="petsValue(this.value)" />
+      <span id="pets">2</span>
+      <script type="text/javascript">
+      function petsValue(newValue)
+      {
+        document.getElementById("pets").innerHTML=newValue;
+      }
+      </script>
+      Roommate's Answer
+      <input type="range" name="pets2" min="1" max="4" value="2" step="1" oninput="petsValue2(this.value)" />
+      <span id="pets2">2</span>
+      <script type="text/javascript">
+      function petsValue2(newValue)
+      {
+        document.getElementById("pets2").innerHTML=newValue;
+      }
+      </script>
+      Importance: <input type="number" name = "pets3"
+                 min="1"
+                 max="10"
+                 step="1"
+                 value="5">
+   </p>
+
+   <p>
+      How often do you drink per week?
+      <input type="range" name="drink" min="1" max="4" value="2" step="1" oninput="drinkValue(this.value)" />
+      <span id="drink">2</span>
+      <script type="text/javascript">
+      function drinkValue(newValue)
+      {
+         document.getElementById("drink").innerHTML=newValue;
+      }
+      </script>
+   Roommate's Answer
+      <input type="range" name="drink2" min="1" max="4" value="2" step="1" oninput="drinkValue2(this.value)" />
+      <span id="drink2">2</span>
+      <script type="text/javascript">
+      function drinkValue2(newValue)
+      {
+         document.getElementById("drink2").innerHTML=newValue;
+      }
+      </script>
+      Importance: <input type="number" name = "drink3"
+                 min="1"
+                 max="10"
+                 step="1"
+                 value="5">
+  </p>
+
+     <h4>Logistical Details </h4>
+     <p>
+       What is your targeted move in date: <br>
+       <input type="date" name = "moveIn">
+     </p>
+     <script>
+     var i = document.createElement("input");
+     i.setAttribute("type", "date");
+     if (i.type == "text") {
+       // No native date picker support :(
+       // Use Dojo/jQueryUI/YUI/Closure to create one,
+       // then dynamically replace that <input> element.
+     }
+     </script>
+     <p>
+      What is your maximum monthly budget:<br> 
+      <input type="number" name ="budget"
+      min="100"
+      max="10000"
+      step="100"
+      value="1000">
+    </p>
+    <input type=submit value=Submit>
+  </form>
+  <input type=reset value=Clear>
+
+</body> 
+</html>

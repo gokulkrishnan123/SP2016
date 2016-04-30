@@ -1,0 +1,493 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <style>
+  
+
+  #logo {
+    vertical-align: text-top;
+    padding-left: 300px;
+    padding-top: 200px;
+  }
+  #account
+  {
+    position:absolute;
+    top:0;
+    right:0;
+  }
+  </style>
+  <title> HomePage </title>
+  
+  
+   
+  
+  
+  
+  <link rel="stylesheet" href="css/default.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/media-queries.css">
+  <link rel="stylesheet" href="../css/magnific-popup.css"> 
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,600,700" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  
+  <script>
+$(document).ready(function(){
+    $("#sub").click(function(){
+        $("#conta").hide();
+        $("#thank_you").show();
+    });
+});
+</script>
+  
+   <!-- This is start of Meet The Team -->
+  
+ <!-- <link rel="stylesheet" type="text/css" href="css_meet/style.css" />  Main stylesheet /-->
+  <link rel="stylesheet" type="text/css" href="css_meet/bootstrap.css"> <!-- Grid framework /-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'> <!-- Open Sans /-->
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'> <!-- PT Sans Narrow /-->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> <!-- Font Awesome /-->
+  
+  <link rel="shortcut icon" href="img_meet/favicon.png" type="image/x-icon" /> <!-- Favicon /-->
+    
+    <!-- This is end of Meet The Team -->
+  
+  <script  src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js"></script>
+  
+  
+  <script>
+    $(document).ready(function() { 
+
+$("#form_wrap").addClass('hide');
+
+
+})
+    
+    // Input Lock
+$('textarea').blur(function () {
+    $('#hire textarea').each(function () {
+        $this = $(this);
+        if ( this.value != '' ) {
+          $this.addClass('focused');
+          $('textarea + label + span').css({'opacity': 1});
+        }
+        else {
+          $this.removeClass('focused');
+          $('textarea + label + span').css({'opacity': 0});
+        }
+    });
+});
+
+$('#hire .field:first-child input').blur(function () {
+    $('#hire .field:first-child input').each(function () {
+        $this = $(this);
+        if ( this.value != '' ) {
+          $this.addClass('focused');
+          $('.field:first-child input + label + span').css({'opacity': 1});
+        }
+        else {
+          $this.removeClass('focused');
+          $('.field:first-child input + label + span').css({'opacity': 0});
+        }
+    });
+});
+
+$('#hire .field:nth-child(2) input').blur(function () {
+    $('#hire .field:nth-child(2) input').each(function () {
+        $this = $(this);
+        if ( this.value != '' ) {
+          $this.addClass('focused');
+          $('.field:nth-child(2) input + label + span').css({'opacity': 1});
+        }
+        else {
+          $this.removeClass('focused');
+          $('.field:nth-child(2) input + label + span').css({'opacity': 0});
+        }
+    });
+});
+  // This is called with the results from from FB.getLoginStatus().
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    window.MyLib = (response["authResponse"])["userID"]; 
+    console.log(window.MyLib);  
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+    } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+      document.getElementById('status').innerHTML = 'Please log ' +
+      'into this app.';
+    } else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+      document.getElementById('status').innerHTML = 'Please log ' +
+      'into Facebook.';
+    }
+  }
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+      console.log("sign in");
+    });
+  }
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '772616462869906',
+    cookie     : true,  // enable cookies to allow the server to access 
+                        // the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : 'v2.5' // use graph api version 2.5
+  });
+
+  // Now that we've initialized the JavaScript SDK, we call 
+  // FB.getLoginStatus().  This function gets the state of the
+  // person visiting this page and can return one of three states to
+  // the callback you provide.  They can be:
+  //
+  // 1. Logged into your app ('connected')
+  // 2. Logged into Facebook, but not your app ('not_authorized')
+  // 3. Not logged into Facebook and can't tell if they are logged into
+  //    your app or not.
+  //
+  // These three cases are handled in the callback function.
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+
+};
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me?fields=email,name,age_range,gender,picture', function(response) {
+     console.log('stringify' + JSON.stringify(response));
+    // var w = window.open("varunprofile.php");
+    // w.myVariable = response;
+    console.log('MyID=' + window.MyLib);
+    console.log(response["authResponse"]);
+    console.log('https://graph.facebook.com/'+(window.MyLib)+'/picture?width=9999');
+    // w.myUrl='https://graph.facebook.com/'+(window.MyLib)+'/picture?width=9999';
+    console.log('Successful login for: ' + response.name);
+    console.log(response);
+    window.open("main.php?userID=" + window.MyLib + "&name=" + response.name+ "&email=" + response.email+"&email=" + response.email +"&url=" + 'https://graph.facebook.com/'+(window.MyLib)+'/picture?width=9999'+ "&gender=" + response.gender + "&birthday=" + response.birthday);
+    // document.getElementById('status').innerHTML =
+    // 'Thanks for logging in, ' + response.name + '!';
+    console.log("sign");
+//    window.location.href='varunpro.php';
+});
+}
+</script>
+
+  
+</head>
+
+<body>
+ <header id="home">
+
+  <nav id="nav-wrap">
+
+   <ul id="nav" class="nav">
+    <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
+    <li><a class="smoothscroll" href="#about">About</a></li>
+    <li><a class="smoothscroll" href="#team">Meet The Team</a></li>
+    <li><a class="smoothscroll" href="#how_it_works">How It Works</a></li>
+    <li><a class="smoothscroll" href="#contact">Contact</a></li>
+    <li><a class="smoothscroll" href="verifyUser.php">Profile</a></li>
+    <li><fb:login-button scope="public_profile,email,user_friends" autologoutlink="true" onlogin="checkLoginState();"></fb:login-button></li>
+  </ul> <!-- end #nav -->
+
+
+
+</nav> <!-- end #nav-wrap -->
+
+<div class="row banner">
+  <div class="banner-text">
+    <h1 class="responsive-headline">Roommate Finder</h1>
+    <h3><span>CSE 437 Project</span></h3>
+    <hr />
+  </div>
+</div>
+
+<p class="scrolldown">
+ <a class="smoothscroll" href="#about"><i class="icon-down-circle"></i></a>
+</p>
+
+</header> <!-- Header End -->
+
+
+<section id="about">
+
+  <div id="profile" class="container">
+    <h2>About</h2>
+    <div class="container">
+      <p class="desc">
+        This website is desgined to match you to a roommate that is a best fit for your personality!
+        We are still in development mode and we appreciate your patience while we work hard in providing
+        you the best platform to find a roommate.
+      </p>
+    </div>
+  </div>
+
+</section> <!-- About Section End-->
+
+<!-- Team Section ================================================== -->
+<section id="team">
+
+<!--
+  <div id="profile" class="container">
+    <h2>Meet The Team</h2>
+    <div class="container">
+
+      <table class="profile" style="width: 800px">
+        <thead>
+          <tr>
+            <th class="propic" style="width: 500px">
+             <img class="img1" src="http://i.imgur.com/BxviS79.jpg"   alt="Varun Krishnamurthy" width="100" height="100" />
+             <img class="img2" src="http://i.imgur.com/1LHmLoa.jpg"   alt="Gokul Krishnan" width="100" height="100" />
+             <img class="img3" src="http://i.imgur.com/rWwhpLO.jpg"   alt="Ashley Peterson" width="100" height="100" />
+             <img class="img4" src="http://i.imgur.com/3ALwu9V.jpg"   alt="Piyush Prasad" width="100" height="100" />
+             <img class="img5" src="http://i.imgur.com/0sN44Z0.jpg"   alt="Sunny Shah" width="100" height="100" />
+           </th>
+
+         </tr>
+       </thead>
+
+     </table>
+   </div>
+ </div>
+
+-->
+
+<!-- SPEAKERS SECTION --> 
+  <section id="speakers">
+      
+    
+    
+    <h3>Meet The Team</h3> <!-- Section Title -->
+    <div class="separator"></div>
+    <div class="container">
+      <div class="col-md-8 col-md-offset-2">
+        <!-- Section Description -->
+        <p>We are a team of creative software engineers whose mission is to build a platform for students to find a roommmate that is best match for them. </p>
+      </div>
+      
+      <!-- First Row of Speakers -->
+      <div class="row1">
+      
+        <!-- Speaker 1 -->
+        <div class="col-md-3">
+          <a href="#" class="member-profile">
+            <div class="unhover_img">
+            <img src="img_meet/varun.jpg" alt="" />
+            </div>
+            <div class="hover_img">
+            <img src="img_meet/varun.jpg" alt="" />
+            </div>
+            <span>Creative Director</span>
+            <h4><span id="titlee">Varun</span> Krishnamurthy</h4>
+          </a>  
+          <ul>
+            <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"  target="_blank"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fa fa-foursquare"></i></a></li>         
+          </ul>
+        </div>
+        
+        <!-- Speaker 2 -->
+        <div class="col-md-3">
+          <a href="#" class="member-profile">
+            <div class="unhover_img">
+            <img src="img_meet/ashley.jpg" alt="" />
+            </div>
+            <div class="hover_img">
+            <img src="img_meet/ashley.jpg" alt="" />
+            </div>
+            <span>Web Designer</span>
+            <h4><span>Ashley</span> Peterson</h4>
+          </a>  
+          <ul>
+            <li><a href="#" target="_blank"><i class="fa fa-dribbble"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"  target="_blank"><i class="fa fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+        
+        <!-- Speaker 3 -->
+        <div class="col-md-3">
+          <a href="#" class="member-profile">
+            <div class="unhover_img">
+            <img src="img_meet/piyush.jpg" alt="" />
+            </div>
+            <div class="hover_img">
+            <img src="img_meet/piyush.jpg" alt="" />
+            </div>
+            <span>Database Manager</span>
+            <h4><span>Piyush</span> Prasad</h4>
+          </a>          
+          <ul>
+            <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fa fa-vimeo-square"></i></a></li>         
+            <li><a href="#" target="_blank"><i class="fa fa-pinterest"></i></a></li>          
+          </ul>         
+        </div>
+        
+        <!-- Speaker 4 -->
+        <div class="col-md-3">
+          <a href="#" class="member-profile">
+            <div class="unhover_img">
+            <img src="img_meet/gokul.jpg" alt="" />
+            </div>
+            <div class="hover_img">
+            <img src="img_meet/gokul.jpg" alt="" />
+            </div>
+            <span>SEO Expert</span>
+            <h4><span>Gokul</span> Krishnan</h4>
+          </a>          
+          <ul>
+            <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"  target="_blank"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fa fa-foursquare"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+          </ul>         
+        </div>
+        
+        
+        
+      </div> <!-- End First Row -->
+      <div class="clear"></div>
+      
+      <!-- Second Row of Speakers -->
+      <div class="row2">
+      
+        <!-- Speaker 5 -->
+        <div class="col-md-3">
+          <a href="#" class="member-profile">
+            <div class="unhover_img">
+            <img src="img_meet/the_great_shah.jpg" alt="" />
+            </div>
+            <div class="hover_img">
+            <img src="img_meet/the_great_shah.jpg" alt="" />
+            </div>
+            <span>Product Manager</span>
+            <h4><span>Sunny</span> Shah</h4>
+          </a>          
+          <ul>
+            <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"  target="_blank"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fa fa-foursquare"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+          </ul>         
+        </div>
+        
+        
+        
+      </div>  <!-- End Second Row --> 
+      <div class="clear"></div>
+      
+      <!-- View All Button -->
+      <div class="col-md-12">
+        <button class="btn btn-transparent fadeIn">View All</button>
+      </div>  
+          
+    </div>
+      
+  </section>
+  <!-- //SPEAKERS SECTION --> 
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> <!-- Load jQuery -->
+
+  <!-- jQuery Code for the View All Button -->
+  <script>
+    $(document).ready(function(){
+      $(".fadeIn").click(function(){
+      $("div.row2").fadeIn();
+      $("button.fadeIn").hide();
+      });
+    });
+  </script>
+
+
+
+</section> <!-- Team Section End-->
+
+
+<section id="how_it_works">
+  <div id="profile" class="container">
+    <h2>How It Works</h2>
+    <div class="container">
+      <p class="desc">
+         We've designed our app to make finding a good roommate as easy as possible! On our survey, there are various questions about lifestyle habits. For each of these, you will answer them, put what your ideal roommate should answer, and place an importance on this factor in your life. Our matching algorithm will compare your responses to everyone else's and develop compatibility scores. Then you can see whom you match with the best!
+      </p>
+    </div>
+  </div>
+  
+  
+</section>
+
+<section id="contact">
+  
+  
+  
+  <h2 id="contact_me">Contact Us!</h2>
+  <div id="thank_you" hidden=true>
+    <h1>Thank you for getting in touch with us! We will get back to you shortly!</h1>
+  </div>
+  
+  
+  <div id="cont">
+  <table id="conta">
+<tr><td>Name:<br><input type="text" name="name" /></td></tr>
+<tr><td>E-mail Address: <span style="color:#D70000">*</span><br><input type="text" name="email" required="true" /></td></tr>
+<tr><td>Subject: <span style="color:#D70000">*</span><br><input type="text" name="subject" required="true" /></td></tr>
+<tr><td>Message: <span style="color:#D70000">*</span><br><textarea name="message" cols="42" rows="9" required="true"></textarea></td></tr>
+<br>
+<tr><td><button id="sub">Send Message</button> </td></tr>
+</table>
+  </div>
+ <!-- <script language="javascript">var sa_email_id = '73041-aaa84';var sa_sent_text = 'Thank you for contacting us. We will get back to you soon.';</script>
+<script language="javascript" src="http://s1.smartaddon.com/sa_htmlform.js"></script>
+<div id="sa_contactdiv">
+<form name=sa_htmlform  onsubmit="return sa_contactform()">
+<table>
+<tr><td>Name:<br><input type="text" name="name" /></td></tr>
+<tr><td>E-mail Address: <span style="color:#D70000">*</span><br><input type="text" name="email" required="true" /></td></tr>
+<tr><td>Subject: <span style="color:#D70000">*</span><br><input type="text" name="subject" required="true" /></td></tr>
+<tr><td>Message: <span style="color:#D70000">*</span><br><textarea name="message" cols="42" rows="9" required="true"></textarea></td></tr>
+<tr><td><input type="submit" value="Send Message" style="font-weight:bold"></td></tr>
+</table>
+</form>
+</div>-->
+  
+</section>
+
+
+<!-- Resume Section ================================================== -->
+
+<p>&copy; 2016 Ashley, Gokul, Piyush, Sunny & Varun<p>
+  <!-- Insert your content here -->
+</body>
+</html>
+

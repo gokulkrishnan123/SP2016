@@ -1,0 +1,62 @@
+<div id="dom-target" style="display: none;">
+<?php
+	session_start();
+	echo ($_SESSION['name']);
+?>
+</div>
+<!doctype html>
+<html>
+  <head>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <link rel='stylesheet' type='text/css' href='/resources/tutorial/css/example.css'>
+  </head>
+  <body>
+<span class="metadata" id="metadata-size-of-widget" title="<?php echo json_encode($_SESSION['name']) ?>"></span>
+    <div id='messagesDiv'></div>
+    <input type='text' id='nameInput' placeholder='Name'>
+    <input type='text' id='messageInput' placeholder='Message'>
+    <script>
+function reqListener () {
+      console.log(this.responseText);
+    }
+
+    var oReq = new XMLHttpRequest(); //New request object
+    oReq.onload = function() {
+        //This is where you handle what to do with the response.
+        //The actual data is found on this.responseText
+        window.name=this.responseText;
+//	alert(this.responseText); //Will alert: 42
+    };
+    oReq.open("get", "getName.php", true);
+    //                               ^ Don't block the rest of the execution.
+    //                                 Don't wait until the request finishes to 
+    //                                 continue.
+    oReq.send();
+      //Firebase database
+      //each chat between 2 people is a sub database in the whole database
+      //use facebook IDs to create specific chatrooms
+      //name taken from profilem
+var size_of_widget = document.getElementById("metadata-size-of-widget").title;
+//	console.log(size_of_widget);
+      var myDataRef = new Firebase('https://fiery-inferno-8902.firebaseio.com/');
+      $('#messageInput').keypress(function (e) {
+        if (e.keyCode == 13) {
+       	var name = window.name;
+	 //  var name = $('#nameInput').val();//Take Name
+          var text = $('#messageInput').val();
+          myDataRef.push({name: name, text: text});
+          $('#messageInput').val('');
+        }
+      });
+      myDataRef.on('child_added', function(snapshot) {
+        var message = snapshot.val();
+        displayChatMessage(message.name, message.text);
+      });
+      function displayChatMessage(name, text) {
+        $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+      };
+    </script>
+  </body>
+</html>

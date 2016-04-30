@@ -1,0 +1,347 @@
+<html>
+<head>
+  <title>Testing the Survey Application</title>
+    <link rel="stylesheet" href="css/layout3.css">
+       <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,600,700" rel="stylesheet" type="text/css" />
+   <link rel="stylesheet" href="css/magnific-popup.css">
+   <link rel="stylesheet" href="css/media-queries.css">
+ <link rel="stylesheet" href="css/default2.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+
+<style>
+
+.h1_blue {
+  color: #1346AD;
+}
+
+.survey_container {
+  border: 1px solid grey;
+  border-radius: 10px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.input_label {
+  margin-right: 15px;
+  text-align: right;
+  width: 50px;
+  display: inline-block;
+}
+
+.number_input {
+  border: none;
+  border-bottom: 1px solid grey;
+  text-align: right;
+}
+
+.number_input:focus {
+  outline: none;
+  border-bottom: 1px solid #1346AD;
+}
+
+</style>
+<body>
+ <header id="home">
+      <nav id="nav-wrap">
+         <ul id="nav" class="nav">
+            <li class="current"><a class="smoothscroll" href="varun.html">Home</a></li>
+            <li><a href="varunpro.php">Profile</a></li>
+            <li><a href="survey2.html">Survey</a></li>
+            <li><a href="getMatches.php">Matches</a></li>
+           
+         </ul> <!-- end #nav -->
+      </nav> <!-- end #nav-wrap -->
+   </header> <!-- Header End -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 survey_container">
+
+       <h1 class="h1_blue">Survey Application Test Form</h1>
+       <form action="survey_info.php" method ="POST">
+        <h4>Logistical Details</h4>
+
+        <div class="form-group">
+          What gender are you?<br>
+          <div class="input_label">Male</div><input type=radio name=myGender value=Male><br>
+          <div class="input_label">Female</div><input type=radio name=myGender value=Female><br>
+        </div>
+
+        <div class="form-group">
+          What gender would you like to live with?<br>
+          <div class="input_label">Male</div><input type=radio name=otherGender value=Male><br>
+          <div class="input_label">Female</div><input type=radio name=otherGender value=Female><br>
+          <div class="input_label">Either</div><input type=radio name=otherGender value=Either><br>
+        </div>
+
+        <div class="form-group">
+          What age range are you comfortable living with?<br>
+          <input type="number" name ="minAge" min="0" max="1000" step="1" value="21" class="number_input">
+          to
+          <input type="number" name = "maxAge" min="0" max="1000" step="1" value="21" class="number_input">
+        </div>
+
+        <div class="form-group">
+         What is your targeted move in date? <br>
+         <input type="date" name = "moveIn">
+       </p>
+       <script>
+       var i = document.createElement("input");
+       i.setAttribute("type", "date");
+       if (i.type == "text") {
+             // No native date picker support :(
+             // Use Dojo/jQueryUI/YUI/Closure to create one,
+             // then dynamically replace that <input> element.
+           }
+           </script>
+           <p>
+            What is your maximum monthly budget?<br>
+            <input type="number" name="budget" min="100" max="10000" step="100" value="1000">
+          </p>
+
+          <h4> Personal Habits </h4>
+    <h4> (1: not important, 10: very important) </h4>
+          <p>
+            How clean are you?
+            <select onchange="cleanValue(this.value)" name="cleanliness">
+              <option value="1" selected="selected">Not clean</option>
+              <option value="2">Somewhat clean</option>
+              <option value="3">Relatively clean</option>
+              <option value="4">Very clean</option>
+            </select>
+            <script type="text/javascript">
+            function cleanValue(newValue)
+            {
+             document.getElementById("cleanliness").innerHTML=newValue;
+           }
+           </script>
+           <br>
+           How would you like your roommate to answer?
+           <select onchange="cleanValue2(this.value)" name="cleanliness2">
+            <option value="1" selected="selected">Not clean</option>
+            <option value="2">Somewhat clean</option>
+            <option value="3">Relatively clean</option>
+            <option value="4">Very clean</option>
+          </select>
+          <script type="text/javascript">
+          function cleanValue2(newValue)
+          {
+           document.getElementById("cleanliness2").innerHTML=newValue;
+         }
+         </script>
+         <br>
+         Importance: <input type="number" name="cleanliness3" min="1" max="10" step="1" value="5">
+       </p>
+
+       <p>
+        How comfortable are you with noise?
+        <select onchange="noiseValue(this.value)" name="noise">
+          <option value="1" selected="selected">Not comfortable</option>
+          <option value="2">Somewhat comfortable</option>
+          <option value="3">Relatively comfortable</option>
+          <option value="4">Very comfortable</option>
+        </select>
+        <script type="text/javascript">
+        function noiseValue(newValue)
+        {
+          document.getElementById("noise").innerHTML=newValue;
+        }
+        </script>
+        <br>
+         How would you like your roommate to answer?
+        <select onchange="noiseValue2(this.value)" name="noise2">
+          <option value="1" selected="selected">Not comfortable</option>
+          <option value="2">Somewhat comfortable</option>
+          <option value="3">Relatively comfortable</option>
+          <option value="4">Very comfortable</option>
+        </select>
+        <script type="text/javascript">
+        function noiseValue2(newValue)
+        {
+          document.getElementById("noise2").innerHTML=newValue;
+        }
+        </script>
+        <br>
+        Importance: <input type="number" name="noise3" min="1" max="10" step="1" value="5">
+      </p>
+
+      <p>
+        How okay are you with having people over?
+        <select onchange="peopleOverValue(this.value)" name="people">
+          <option value="1" selected="selected">Not okay</option>
+          <option value="2">Somewhat okay</option>
+          <option value="3">Relatively okay</option>
+          <option value="4">Very okay</option>
+        </select>
+        <script type="text/javascript">
+        function peopleOverValue(newValue)
+        {
+         document.getElementById("people").innerHTML=newValue;
+       }
+       </script>
+       <br>
+        How would you like your roommate to answer?
+       <select onchange="peopleOverValue2(this.value)" name="people2">
+        <option value="1" selected="selected">Not okay</option>
+        <option value="2">Somewhat okay</option>
+        <option value="3">Relatively okay</option>
+        <option value="4">Very okay</option>
+      </select>
+      <script type="text/javascript">
+      function peopleOverValue2(newValue)
+      {
+       document.getElementById("people2").innerHTML=newValue;
+     }
+     </script>
+     <br>
+     Importance: <input type="number" name="people3" min="1" max="10" step="1" value="5">
+   </p>
+
+   <p>
+    How okay are you living with a smoker?
+    <select onchange="smokingValue(this.value)" name="smoker">
+      <option value="1" selected="selected">Not okay</option>
+      <option value="2">Somewhat okay</option>
+      <option value="3">Relatively okay</option>
+      <option value="4">Very okay</option>
+    </select>
+    <script type="text/javascript">
+    function smokingValue(newValue)
+    {
+     document.getElementById("smoker").innerHTML=newValue;
+   }
+   </script>
+   <br>
+    How would you like your roommate to answer?
+   <select onchange="smokingValue2(this.value)" name="smoker2">
+    <option value="1" selected="selected">Not okay</option>
+    <option value="2">Somewhat okay</option>
+    <option value="3">Relatively okay</option>
+    <option value="4">Very okay</option>
+  </select>
+  <script type="text/javascript">
+  function smokingValue2(newValue)
+  {
+   document.getElementById("smoker2").innerHTML=newValue;
+ }
+ </script>
+ <br>
+ Importance: <input type="number" name="smoker3" min="1" max="10" step="1" value="5">
+</p>
+
+<p>
+  What's your ideal room temperature (in degrees F)?
+  <select onchange="tempValue(this.value)" name="temperature">
+    <option value="1" selected="selected">60</option>
+    <option value="2">65</option>
+    <option value="3">70</option>
+    <option value="4">75</option>
+  </select>
+  <script type="text/javascript">
+  function tempValue(newValue)
+  {
+    document.getElementById("temperature").innerHTML=newValue;
+  }
+  </script>
+  <br>
+   How would you like your roommate to answer?
+  <select onchange="tempValue2(this.value)" name="temperature2">
+    <option value="1" selected="selected">60</option>
+    <option value="2">65</option>
+    <option value="3">70</option>
+    <option value="4">75</option>
+  </select>
+  <script type="text/javascript">
+  function tempValue2(newValue)
+  {
+    document.getElementById("temperature2").innerHTML=newValue;
+  }
+  </script>
+  <br>
+  Importance: <input type="number" name="temperature3" min="1" max="10" step="1" value="5">
+</p>
+
+<p>
+  When do you sleep each night?
+  <select onchange="petsValue(this.value)" name="pets">
+    <option value="1" selected="selected"> Very Early (Between 7 PM and 9 PM)</option>
+    <option value="2">Early (Between 9 PM and 11 PM)</option>
+    <option value="3">Late (Between 11 PM and 1 AM)</option>
+    <option value="4">Very Late (After 1 AM)</option>
+  </select>
+  <script type="text/javascript">
+  function petsValue(newValue)
+  {
+    document.getElementById("pets").innerHTML=newValue;
+  }
+  </script>
+  <br>
+   How would you like your roommate to answer?
+  <select onchange="petsValue2(this.value)" name="pets2">
+    <option value="1" selected="selected">Very Early (Between 7 PM and 9 PM)</option>
+    <option value="2">Early (Between 9 PM and 11 PM)</option>
+    <option value="3">Late (Between 11 PM and 1 AM)</option>
+    <option value="4">Very Late (After 1 AM)</option>
+  </select>
+  <script type="text/javascript">
+  function petsValue2(newValue)
+  {
+    document.getElementById("pets2").innerHTML=newValue;
+  }
+  </script>
+  <br>
+  Importance: <input type="number" name="pets3" min="1" max="10" step="1" value="5">
+</p>
+
+<p>
+  How often do you drink per week?
+  <select onchange="drinkValue(this.value)" name="drink">
+    <option value="1" selected="selected">Not often</option>
+    <option value="2">Somewhat often</option>
+    <option value="3">Relatively often</option>
+    <option value="4">Very often</option>
+  </select>
+  <script type="text/javascript">
+  function drinkValue(newValue)
+  {
+   document.getElementById("drink").innerHTML=newValue;
+ }
+ </script>
+ <br>
+  How would you like your roommate to answer?
+ <select onchange="drinkValue2(this.value)" name="drink2">
+  <option value="1" selected="selected">Not often</option>
+  <option value="2">Somewhat often</option>
+  <option value="3">Relatively often</option>
+  <option value="4">Very often</option>
+</select>
+<script type="text/javascript">
+function drinkValue2(newValue)
+{
+ document.getElementById("drink2").innerHTML=newValue;
+}
+</script>
+<br>
+Importance: <input type="number" name="drink3" min="1" max="10" step="1" value="5">
+</p>
+
+<h4>About You</h4>
+<p>
+  Write a short description about yourself:
+  <div class="form-horizontal">
+    <div class="form-group">
+        <textarea name="bio" class="form-control" rows="3"></textarea>
+    </div>
+  </div>
+</p>
+<input type=submit value=Submit>
+</form>
+<!--<input type=reset value=Clear>-->
+</div>
+</div>
+</div>
+</body>
+</html>
+

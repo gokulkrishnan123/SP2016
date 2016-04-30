@@ -1,0 +1,158 @@
+<html> 
+<head> 
+  <title>Testing the Survey Application</title> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head> 
+<body background="http://www.csubak.edu/Graphics/backgrnd.gif"> 
+  <font color=#1346AD size=+3>Survey Application Test Form</font> <br>
+  
+  <form action="survey_info.php" method="POST">
+  What is your gender?<br>
+  <p> 
+  <li><input type=radio name=Gender value=Male> Male<br> 
+    <li><input type=radio name=Gender value=Female> Female<br> 
+  </p>     
+ <p> 
+        What Gender do you want to live with:<br> 
+        <li><input type=radio name=Gender value=Male> Male<br> 
+          <li><input type=radio name=Gender value=Female> Female<br> 
+            <li><input type=radio name=Gender value=Either> Either<br> 
+              <p> 
+                What age range are you comfortable living with?<br> 
+                <input type="number"
+                min="18"
+                max="100"
+                step="1"
+                value="21"> to
+                <input type="number"
+                min="18"
+                max="100"
+                step="1"
+                value="21">
+              </p>
+              <h4> Personal Habits </h4>
+              <p>
+                How clean are you on a scale of 1 to 10 (10 being a neat-freak)?
+                <input type="range" min="1" max="10" value="5" step="1" oninput="showValue1(this.value)" />
+                <span id="cleanliness">5</span>
+                <script type="text/javascript">
+                function showValue1(newValue)
+                {
+                  document.getElementById("cleanliness").innerHTML=newValue;
+                }
+                </script>
+              </p>
+		<p>
+                How would you like your roommate to respond: cleanliness on a scale of 1 to 10 (10 being a neat-freak)?
+                <input type="range" min="1" max="10" value="5" step="1" oninput="showValue1(this.value)" />
+                <span id="cleanliness2">5</span>
+                <script type="text/javascript">
+                function showValue1(newValue)
+                {
+                  document.getElementById("cleanliness2").innerHTML=newValue;
+                }
+                </script>
+              </p>
+              <p>
+                How comfortable are you with noise?
+                <input type="range" min="1" max="10" value="5" step="1" oninput="showValue(this.value)" />
+                <span id="noise">5</span>
+                <script type="text/javascript">
+                function showValue(newValue)
+                {
+                  document.getElementById("noise").innerHTML=newValue;
+                }
+                </script>
+              </p>
+
+              <p>
+                How okay are you with having people over?
+                <input type="range" min="1" max="10" value="5" step="1" oninput="showValue2(this.value)" />
+                <span id="people">5</span>
+                <script type="text/javascript">
+                function showValue2(newValue)
+                {
+                  document.getElementById("people").innerHTML=newValue;
+                }
+                </script>
+              </p>
+
+              <p>
+                How okay are you living with a smoker?
+                <input type="range" min="1" max="10" value="5" step="1" oninput="showValue3(this.value)" />
+                <span id="smoker">5</span>
+                <script type="text/javascript">
+                function showValue3(newValue)
+                {
+                  document.getElementById("smoker").innerHTML=newValue;
+                }
+                </script>
+              </p>
+
+              <p>
+                What's your ideal room temperature (in degrees F)?
+                <input type="range" min="65" max="75" value="70" step="1" oninput="showValue5(this.value)" />
+                <span id="temperature">70</span>
+                <script type="text/javascript">
+                function showValue5(newValue)
+                {
+                  document.getElementById("temperature").innerHTML=newValue;
+                }
+                </script>
+              </p>
+
+              <p>
+                How okay would you be living with pets?
+                <input type="range" min="1" max="10" value="5" step="1" oninput="showValue6(this.value)" />
+                <span id="pets">5</span>
+                <script type="text/javascript">
+                function showValue6(newValue)
+                {
+                  document.getElementById("pets").innerHTML=newValue;
+                }
+                </script>
+              </p>
+
+              <p>
+                How often do you drink per week?
+                <input type="range" min="0" max="7" value="5" step="1" oninput="showValue4(this.value)" />
+                <span id="drink">5</span>
+                <script type="text/javascript">
+                function showValue4(newValue)
+                {
+                  document.getElementById("drink").innerHTML=newValue;
+                }
+                </script>
+              </p>
+
+              <h4>Logistical Details </h4>
+              <p>
+                What is your targeted move in date: <br>
+                <form>
+                  <input type="date">
+                </form>
+
+                <script>
+                var i = document.createElement("input");
+                i.setAttribute("type", "date");
+                if (i.type == "text") {
+    // No native date picker support :(
+    // Use Dojo/jQueryUI/YUI/Closure to create one,
+    // then dynamically replace that <input> element.
+  }
+  </script>
+  <p>
+    What is your maximum monthly budget:<br> 
+    <input type="number"
+    min="100"
+    max="10000"
+    step="100"
+    value="1000">
+  </p>
+  <input type="submit" value=Send><br> 
+</form> 
+</body> 
+</html>
